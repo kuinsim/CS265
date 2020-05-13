@@ -1,0 +1,27 @@
+#Suin Kim
+#CS265-005
+#Lab 8
+
+Q1:
+i. Hide implementation details means to separate the interface from the implementation and minimizing interdependencies. This is important for having modular code and so that the user is not affected from changes to code. This also makes testing, debugging, and replacing easier. 
+ii. Choose a small orthogonal set of primitives means to use non-overlapping functions and capabilities to perform a necessary and minimal set of behaviors. 
+iii. Dont reach behind the users back means to minimize and document side effects, decrease coupling, and explicitly define what external services are needed so that the interface does not do anything that the user does not know about or expect.
+iv. Do the same thing the same way everywhere means to be consistent in terms of naming schemes, defining arguments, and behaving similarly to associated functions.
+
+Q2:
+The problem with the first implementation in C is that a line can't be longer than 199 characters. In addition, each line is limited to 20 fields and does not handle empty fields as well as commas and quotes within quotes.
+
+Q3:
+Some things that were improved in the first revision were that more characters and fields can be handled. Commas and quotes within quotes are also handled better. The addition of the endofline function determines if the end of a line or file is reached. The overall programming style improved in terms of variable names and comments. 
+
+Q4:
+Some problems that the first revision still has is that it still does not handle lines with no fields. Furthermore, it cannot parse 2 different CSV files at the same time because only one instance of the required variables exists, which is a result of using static variables. On top of that, it cannot read from stdin. 
+
+Q5:
+The C++ implementation solves the problem of not being able to handle multiple files and also allows reading from stdin. However, it still does not handle empty fields.
+
+Q6:
+The interface for the C++ implementation adheres to the guidelines for a good interface from lecture. The user does not need to know the implementation details in order to use the class. In addition, there are no overlapping functions performing the same task. No changes are made to the code without the user knowing. Lastly, function and variable names and naming in general are consistent. 
+
+Q7:
+See csv.c

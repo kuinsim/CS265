@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<direntry>
+	<index>
+		<file>labs.html</file>
+	</index>
+	<other>
+		<dir>3</dir>
+		<dir>2</dir>
+		<dir>1</dir>
+		<fifo>aPipe</fifo>
+		<file>README</file>
+	</other>
+</direntry>

@@ -1,0 +1,3 @@
+gInt.py and test_gInt.py files are in the Testing directory
+
+Took me an extra day to fix spacing and indentation issues that were caused by copying and pasting given code from test_money.py into my test_gInt.py. 

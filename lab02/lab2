@@ -1,0 +1,161 @@
+Q1:
+./sk3665-CS265-sp19/lab02/check.bash
+./sk3665-CS265-sp19/lab02/hello
+./sk3665-CS265-sp19/lab02/loop_subshell.bash
+./sk3665-CS265-sp19/lab02/tmp/gotMe.bash
+./sk3665-CS265-sp19/lab02/mySettings
+./sk3665-CS265-sp19/lab02/spellExample
+./sk3665-CS265-sp19/lab02/ids
+./sk3665-CS265-sp19/lab02/args.bash
+./sk3665-CS265-sp19/lab02/index2.html
+./sk3665-CS265-sp19/lab02/heidi.list
+./sk3665-CS265-sp19/lab02/rv.bash
+./sk3665-CS265-sp19/lab02/Makefile
+./sk3665-CS265-sp19/lab02/isatty.bash
+./sk3665-CS265-sp19/lab02/list
+./sk3665-CS265-sp19/lab02/out.bash
+./sk3665-CS265-sp19/lab02/makefile
+./sk3665-CS265-sp19/lab02/outline.html
+./sk3665-CS265-sp19/lab02/descin
+./sk3665-CS265-sp19/lab02/varChange
+./sk3665-CS265-sp19/lab02/lab2
+./sk3665-CS265-sp19/lab02/breadIsDangerous.txt
+./sk3665-CS265-sp19/lab02/index.html
+./sk3665-CS265-sp19/lab02/hello.bash
+./sk3665-CS265-sp19/lab02/eg.bash
+./sk3665-CS265-sp19/lab02/msg
+./sk3665-CS265-sp19/lab02/func.bash
+./sk3665-CS265-sp19/lab02/getopts.bash
+./sk3665-CS265-sp19/lab02/fred
+
+Q2:
+find . -type f -name \*.bash
+
+Q3:
+  97  499 2960 breadIsDangerous.txt
+
+Q4:
+ls -1 | wc -l
+
+Q5:
+grep bread breadIsDangerous.txt
+
+Q6:
+grep the breadIsDangerous.txt | wc -l
+
+Q7:
+there is now a spellExample and spellExample.bak file
+
+Q8:
+Output:
+1c1
+< I went to a garden party
+---
+> I went to a gadren party
+3c3
+< bunch of my old friends did something
+---
+> bnuch of my old freinds did somehting
+6d5
+< An extra line
+
+The command "diff spellExample spellExample.bak" outputs all of the lines in both of the files that do not match. "<" means that the text appears in spellExample while ">" indicates that the text appears in spellExample.bak.
+
+Q9:
+No output
+
+Q10:
+Output:
+1
+15
+17
+20
+24
+26
+28
+29
+6
+9
+
+The output was not what I expected because of the "6" and the "9" at the end. I expected all of the numbers to be sorted from least to greatest according to their numerical values, including the "6" and the "9".
+
+Q11:
+Output:
+1
+6
+9
+15
+17
+20
+24
+26
+28
+29
+
+The output from the command "sort -n numbers" is different from "sort numbers". This time, the output behaved how I expected it to since all of the numbers were sorted from least to greatest according to their numerical value.
+
+Q12:
+Output:
+29
+28
+26
+24
+20
+17
+15
+9
+6
+1
+
+The output from the command "sort -nr numbers" is the numbers sorted from greatest to least according to their numerical value.
+
+Q13:
+Output:
+-rw-r--r-- 1 sk3665 7168 Apr  8 13:11 outline.html
+-rw-r--r-- 1 sk3665 4332 Apr  8 13:11 index.html
+-rwxr-xr-x 1 sk3665 3403 Apr  8 13:11 eg.bash
+-rw-r--r-- 1 sk3665 2960 Apr  8 13:11 breadIsDangerous.txt
+-rw-rw-r-- 1 sk3665 2373 Apr 12 12:29 lab2
+-rwxr-xr-x 1 sk3665 1642 Apr  8 13:11 args.bash
+-rw-r--r-- 1 sk3665 1030 Apr  8 13:11 index2.html
+-rwxr-xr-x 1 sk3665  806 Apr  8 13:11 getopts.bash
+-rwxr-xr-x 1 sk3665  589 Apr  8 13:11 func.bash
+-rw-r--r-- 1 sk3665  427 Apr  8 13:11 loop_subshell.bash
+-rwxr-xr-x 1 sk3665  398 Apr  8 13:11 isatty.bash
+-rwxr-xr-x 1 sk3665  368 Apr  8 13:11 hello
+-rwxr-xr-x 1 sk3665  364 Apr  8 13:11 descin
+-rwxr-xr-x 1 sk3665  359 Apr  8 13:11 varChange
+-rwxr-xr-x 1 sk3665  358 Apr  8 13:11 hello.bash
+-rw-r--r-- 1 sk3665  323 Apr  8 13:11 Makefile
+-rwxr-xr-x 1 sk3665  278 Apr  8 13:11 fred
+-rwxr-xr-x 1 sk3665  204 Apr  8 13:11 check.bash
+-rwxr-xr-- 1 sk3665  185 Apr  8 13:11 rv.bash
+-rw-r--r-- 1 sk3665  111 Apr 10 17:12 spellExample
+-rw-r--r-- 1 sk3665   97 Apr 10 13:47 spellExample.bak
+-rwxr-xr-x 1 sk3665   61 Apr  8 13:11 out.bash
+-rw-r--r-- 1 sk3665   45 Apr  8 13:11 list
+-rw-r--r-- 1 sk3665   28 Apr  8 13:11 mySettings
+-rw-r--r-- 1 sk3665   28 Apr  8 13:11 msg
+-rw-r--r-- 1 sk3665   27 Apr 12 12:14 numbers
+-rw-r--r-- 1 sk3665   25 Apr  8 13:11 makefile
+-rw-r--r-- 1 sk3665    9 Apr  8 13:11 ids
+total 36
+-rw-rw-r-- 1 sk3665    0 Apr  8 13:18 heidi.list
+drwxrwxr-x 2 sk3665    0 Apr  8 13:24 tmp
+
+The files are listed in greatest to least order based on their file sizes.
+
+Q14:
+du * | sort -nr | head -n 8
+
+Q15:
+The command "echo$%" returns the output of the previous pipe or command. The first "echo$%" returned 0 because the command executed successfully with no errors. The second "echo$%" returned a 1 because "uniqueString" is not in the file breadIsDangerous.txt. Lastly, the third "echo$%" returned a 2 because the file "noSuchFile" does not exist and therefore, could not execute successfully.
+
+Q16:
+n.1:
+17d1a4c555e7b7c3d40daa4304baee8ff27f4b7f
+n.2:
+git reset unstages files while git reset --hard clears the index and returns the working directory to the last committed state.
+n.3:
+git checkout dabc8d2 -- marlin
+

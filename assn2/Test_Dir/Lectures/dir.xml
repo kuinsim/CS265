@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<direntry>
+	<index>
+		<file>lecs.html</file>
+	</index>
+	<other>
+		<sock>aSocket</sock>
+		<fifo>aPipe</fifo>
+		<file>README</file>
+	</other>
+</direntry>

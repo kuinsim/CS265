@@ -1,0 +1,25 @@
+#Suin Kim
+#CS270-002
+#Lab 9
+
+Q1.1:
+The program exited and outputted "Segmentation fault (core dumped)". In addition, a new file named "core" was recently created/modified in the current working directory.
+
+Q1.2:
+The function that bombed was inTable()
+Here is the output of (gdb) bt:
+#0  __strcmp_sse2 () at ../sysdeps/x86_64/strcmp.S:173
+#1  0x00005639136baafb in inTable ()
+#2  0x00005639136baa5d in main ()
+
+Q1.3:
+c. The program failed at line 79 which had to do with inTable(). When I check bug3.c, I noticed that numLines is incremented before the first assignment. I fixed this by incrementing numlines after the assignment to st.
+e. The program did not output the correct number when subtracting two numbers. I fixed this by switching the order of num and pop(&stack) in line 47 of calc.c.
+f. The pivot location  needs to be randomized to ensure that an array with an empty first element is not returned. An assert could check if both the pivot has been initially randomized as well as if it has been changed. 
+
+Q1.4:
+The compiler cannot catch this because compilers cannot detect all logic errors and account for every possible input. In fact, compilers can only detect bad syntax and some logical errors such as unreachable code.
+
+Q1.5:
+The compiler will catch the error if the string comparison function is type specific. Otherwise, an error will be thrown at run time if the string comparison function is not type specific. 
+

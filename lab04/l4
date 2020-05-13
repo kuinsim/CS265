@@ -1,0 +1,38 @@
+Suin Kim CS265-005
+
+Used grep 
+
+Q1:
+egrep 'the' bright_side_of_life
+
+Q2:
+egrep '\<the\>' bright_side_of_life
+
+Q3:
+egrep '\<Just>\' bright_side_of_life
+
+Q4:
+egrep '(J|j)ust' bright_side_of_life
+
+Q5:
+egrep '^(J|j)ust' bright_side_of_life
+
+Q6:
+egrep '\<(b|m)ad\>' bright_side_of_life
+
+Q7:
+egrep '\<(d|br)eath\>' bright_side_of_life
+
+Q8:
+egrep '(you$|you[,.])$' bright_side_of_life
+
+Q9:
+egrep '^\s' bright_side_of_life
+
+Q10:
+egrep '^$' bright_side_of_life
+
+Q11:
+egrep -c '^$' bright_side_of_life
+11
+

@@ -1,0 +1,42 @@
+Q2:
+total 42
+-rw-r--r-- 1 sk3665 sk3665  8060 Apr  8 00:50 funny
+-rwxr-xr-x 1 sk3665 sk3665   240 Apr  8 00:51 hello.bash
+-rw-rw-r-- 1 sk3665 sk3665     1 Apr  3 16:34 lab1
+-rw-rw-r-- 1 sk3665 sk3665 33688 Apr  8 00:36 vi_lab
+
+Q3:
+read and write to user, read to group, read to world
+
+Q4:
+all permissions to user, read and execute to group, read and execute to world
+
+Q5:
+yes
+
+Q6:
+yes
+
+Q7:
+no
+
+Q8:
+chmod 100 hello.bash, chmod 300 hello.bash, chmod 500 hello.bash, chmod 700 hello.bash
+
+Q9:
+could not save changes, received error: "E45: 'readonly' option is set (add ! to override)"
+
+Q10:
+sk3665@tux5 lab01> ls *
+annoy  annoy.cc  funny  hello.bash  itemList  itemList-2cols  lab1  TelecomTruths  UnitTestingPhase  vi_lab
+sk3665@tux5 lab01> ls a*
+annoy  annoy.cc
+sk3665@tux5 lab01> ls *m*
+itemList  itemList-2cols  TelecomTruths
+sk3665@tux5 lab01> ls anno?
+annoy
+sk3665@tux5 lab01> ls annoy?
+ls: cannot access 'annoy?': No such file or directory
+
+Q11:
+created a file called "a" instead of "a space"

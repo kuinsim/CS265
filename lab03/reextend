@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#Suin Kim
+
+if [ $# = 0 ]; then
+	echo "No file extension specified."
+	exit 1
+fi
+
+if [ $# = 1 ]; then
+	echo "Only one file extension specified. Please provide another."
+	exit 2
+fi
+
+if [ $# \> 2 ]; then
+	echo "Too many arguments. Please specify two file extensions."
+	exit 3
+fi
+
+for f in *$1; do
+  mv "$f" "${f/%$1/$2}"
+done
+
+exit 0

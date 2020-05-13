@@ -1,0 +1,104 @@
+#!/bin/bash
+
+#Suin Kim
+#CS265-005
+#5/11/19
+
+#checks input argument
+function check_input
+{
+	if [ $# = 0 ]
+	then
+		dir='.' #if no argument supplied, use current directory
+	else
+		dir=$1
+	fi
+}
+
+#traverse through all subdirectories and generates dir.xml for each one
+function generate_xml
+{
+	for subdir in $(find $dir -type d); do 
+		xml="$subdir/dir.xml"
+		echo '<?xml version="1.0" encoding="ISO-8859-1"?>' > $xml
+		echo "<direntry>" >> $xml
+		files_README=("")
+		files_all=("")
+
+		if [ -e "$subdir/README" ]
+		then
+			readme #call readme function if README file exists
+		fi
+
+		other #call other function to get files and directories not in README 
+		echo "</direntry>" >> $xml
+	done	
+}
+
+#parses README file and adds corresponding index and required nodes under direntry in dir.xml
+function readme
+{
+	parsed_README=$(awk '{for (i=1;i<=NF;i++) print $i}' FS=":" "$subdir/README") #parse README file with awk
+	tag=""
+	
+	#creates index and required nodes
+	for x in $parsed_README; do
+		files_README=("${files_README[@]}" "$x") #store files found in README
+		if [[ "$x" == 'index' || "$x" == 'required' ]];
+		then
+			if [[ -z $tag ]];
+			then
+				tag="$x"
+				echo -e "\t<$tag>" >> $xml
+
+			elif [[ !( -z $tag && $tag == "$x" ) ]];
+			then
+				echo -e "\t</$tag>" >> $xml
+				tag="$x"
+				echo -e "\t<$tag>" >> $xml
+			fi
+
+		else
+			if [[ -d "$subdir/$x" ]];
+			then
+				echo -e "\t\t<dir>$x</dir>" >> $xml
+
+			elif [[ -f "$subdir/$x" ]];
+			then
+				echo -e "\t\t<file>$x</file>" >> $xml
+			fi
+
+		fi
+	done
+
+	echo -e "\t</$tag>" >> $xml
+}
+
+#finds files and directories not in README and adds other node under direntry in dir.xml
+function other
+{
+	for file in $(ls $subdir); do
+		files_all=("${files_all[@]}" "$file") #stores all files found in subdirectory
+	done
+
+	files_dirs_uniq=`echo ${files_all[@]} ${files_README[@]} | tr ' ' '\n' | sort | uniq -u` #get unique files and directories from files_README and files_all
+	
+	#creates other node
+	echo -e "\t<other>" >> $xml
+		for item in $files_dirs_uniq; do
+			if [[ !( "$item" == "dir.xml" || "$item" == "index" || "$item" == "required" ) ]]; #do not include dir.xml or files in README as the files listed
+			then
+				if [[ -d "$subdir/$item" ]];
+				then
+					echo -e "\t\t<dir>$item</dir>" >> $xml
+				else
+					echo -e "\t\t<file>$item</file>" >> $xml
+				fi
+			fi
+		done
+
+		echo -e "\t</other>" >> $xml
+}
+
+check_input #calls check_input function
+generate_xml #calls generate_xml function

@@ -1,0 +1,62 @@
+Suin Kim
+CS265-005
+
+Q1:
+i. List: A list is a set of elements where each element contains data and a pointer to the next element. The head of the list is a pointer to the first element while the end of the list has a null pointer. Changing the pointers rearranges the elements.
+ii. Stack: A Stack is a set of elements that are linked to each other similar to a list. Elements in a stack follow the pattern of "last in, first out". This means that the element that is inserted last will be removed first.
+iii. Queue: A queue is a set of ordered elements like a stack. However, elements in a queue follow the pattern of "first in, first out". This means that the element that is inserted first will be removed first.
+iv. Dictionary: A dictionary is a collection of key and value pairs. Each key can only appear once in the collection. 
+
+Q2:
+The binary search will compare elements at most log2(n) times. It essentially divides the number of elements, or n, by 2 with every check and continues to do so until there is a single element left.
+
+Q3:
+The linear search will compare elements at most n times. This is because the linear search checks every element in the array until it reaches the desired element, which could be the last element in the array.
+
+Q4:
+Using linear search would be preferable over binary search when searching through a small list. In addition, linear search has to be used for unsorted arrays.
+
+Q5:
+*84* 37 93 82 98 27 63 73 93 27 75 55 45 8
+37 82 27 63 73 27 75 55 45 8 *84* 93 98 93
+*37* 82 27 63 73 27 75 55 45 8	 84   *93* 98 93
+27 27 8 *37* 82 63 73 75 55 45 	 84    93 *93* 98
+*27* 27 8   37   *82* 63 73 75 55 45   84   93   *93* 98
+8 *27*   37   63 73 75 55 45 *82*   84   93   93 98
+8   27   27   37   *63* 73 75 77 45   82   84   93   93   98
+8   27   27   37   45 *63* 73 75 77   82   84   93   93   98
+8   27   27   37   45   63   *73* 75 77   82   84   93   93   98
+8   27   27   37   45   63   73   *75* 77   82   84   93   93   98
+8   27   27   37   45   63   73   75   77   82   84   93   93   98
+
+Q6:
+3->24->06
+
+Q7:
+[13,[28,[13,[24,NONE]]]]
+
+Q8:
+The difference in output is due to the pointer s being reinitialized and re-allocated free memory while buffer remains the same and then copied into s. The final set of output is different than the second set because s is not being pointed directly at the buffer, therefore changing s will not change the contents of buffer.
+
+Q9:
+Key   Value
+3   [Bob,38],[Cos,86]
+4   [Vera,99],[Nash,11],[Kate,28],[Jaga,24]
+5   [Jesse,78]
+
+Q10:
+int find( char *key, int *p_ans )
+{
+	int h = hash(key);
+	entry *node;
+	for (node = table[h]; node != NULL; node = node -> next)
+	{
+		if (strcmp(key, node -> key) == 0)
+		{
+			*p_ans = node -> val;
+			return 1;
+		}
+	}
+	return 0;
+}
+

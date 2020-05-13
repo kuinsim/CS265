@@ -1,0 +1,3 @@
+Used Professor Schmidt's sample makefile, but had to remove it in order to get my Makefile to work correctly.
+
+Used export CDDB=sample.db to set environment variable

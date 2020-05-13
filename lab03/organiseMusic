@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Suin Kim
+
+for f in *.mp3; do
+	dir="${f%%\ -*}"
+	fileName="${f#*-\ }"
+	if [ ! -d "$dir" ]; then
+		mkdir -p "$dir"
+	fi
+	mv "$f" "$dir/$fileName"
+done
+
+exit 0

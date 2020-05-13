@@ -1,0 +1,126 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Expires" content="no-expire">
+  <meta name="Author" content="Kurt Schmidt">
+	<meta name="Publisher" content="Drexel University">
+	<meta name="Copyright" content="">
+	<meta name="Keywords" content="Programming Techniques Unix">
+	<meta name="Description"
+		content="Lab for CS265 - Adv. Programming Techniques">
+	<meta name="Pagetype" content="Lab">
+	<meta name="Audience" content="All">
+	<link rel='shortcut icon' type='image/gif'
+		href='http://www.cs.drexel.edu/images/drexel.gif'></link>
+	<script language="JavaScript"
+		src="../../../courseInfo.js"></script>
+	<script language="JavaScript"
+		src="http://www.cs.drexel.edu/~kschmidt/Scripts/courseFormat.js"></script>
+  <title>Assignment -- CD Database</title>
+</head>
+
+
+<body text="#330099" link="#000066" vlink="#000066" alink="#FF0000"
+	background="http://www.cs.drexel.edu/~kschmidt/images/blueTexture.jpeg">
+
+<h1>CD Database</h1>
+
+<h2>Introduction</h2>
+
+<p>This assignment will give you practise w/user and program interfaces,
+and choosing/building useful data structures.</p>
+
+<p>You will maintain a flat-file database, allowing users to query, delete a
+entry, create an entry.</p>
+
+<p> You'll also, for some practise, submit a make file. </p>
+
+<hr>
+<h2>The Assignment</h2>
+
+<p> Write a command-line utility called <tt><b>cddb</b></tt> to maintain a flat-file database of album information.  You
+will allow the user to view album info, add a new entry, or delete an entry, where each entry is an album w/all of the
+track information, as follows: </p>
+
+<hr>
+<h3> Options, and Descriptions </h3>
+
+<ul>
+	<li> <tt><b>-l</b></tt> &#8212; List album
+		<ol>
+			<li> Display an enumerated, alphabetical list of artists<sup>&#0134;</sup> </li>
+			<li> You will allow the user to choose an artist by entering the number, or to quit by entering a
+				<tt><b>q</b></tt> </li>
+			<li> You will then list all albums, by release date, enumerated </li>
+			<li> Allow the user to choose an album, by #, or return to the menu above (artists) by entering <tt><b>a</b></tt>
+				</li>
+			<li> If an album is entered, list all songs in that album, by track order.  Prompt for input to return to the
+				previous (i.e., the album) menu </li>
+		</ol>
+	</li>
+	<li> <tt><b>-d</b></tt> &#8212; Delete album.  Similar to above, display
+		menus allowing a user to choose an album to delete </li>
+	<li> <tt><b>-a</b></tt> &#8212; Add album.  You'll prompt for artist, album name, release date, and finally the track
+		list.  You may assume that they are entered in track order.<br/> You'll want to check that the album doesn't already
+		exist before adding it </li>
+	<li> <tt><b>-h</b></tt> &#8212; Show usage msg and quit </li>
+</ul>
+
+<p> <sup>&#0134;</sup>You may assume that all names are entered exactly.  That is, do not worry about inconsistencies in
+spelling or capitalisation.  E.g., <i>Led Zeppelin</i>, <i>LedZeppelin</i>, and <i>led zeppelin</i> are 3 different
+groups for this assignment. </p>
+
+<p> If no argument is supplied, a bad argument is supplied, or multiple arguments, print a usage message and exit. </p>
+
+<hr>
+<h3>File Format</h3>
+
+<p> Album information will be stored in a flat file w/the format shown in <a
+	href='sample.db'>sample.db</a>: </p>
+
+<iframe src='sample.db' width='90%' scrolling='yes' height='400'></iframe>
+
+<p> To simplify things, the filename (location of the DB) will be stored in an exported environment variable,
+<tt><b>$CDDB</b></tt> . </p>
+
+
+<hr>
+<h2> Target Language </h2>
+
+<p> You will do this in Python3. </p>
+
+<hr>
+<a name='alg'><h2> Hints (maybe) </h2></a>
+
+<ul>
+	<li> I'd create some data structure to represent an album </li>
+	<li> Store albums in a dictonary, keyed by artist </li>
+	<li> When updating the DB (writing the new file out), write to a temporary file.  If this is successful, rename it
+		appropriately.  This is generally an atomic operation.  So, if something bad happens w/your program, or the power
+		grid, etc., you don't blow your DB up </li>
+</ul>
+
+<hr>
+<h2> Submission </h2>
+
+<p> Submit the following files: </p>
+
+<ul>
+	<li> <tt><b>cddb</b></tt> &mdash; Your top-level Python script
+	<li> <tt><b>Makefile</b></tt> &mdash; your makefile, with the folowing targets:
+		<ul>
+			<li> <tt>clean</tt> &mdash; cleans up all intermediate and resulting
+				files and directories (if any) </li>
+			<li> <tt>view</tt> &mdash; display any source code that you wrote, in
+				a pager </li>
+		</ul>
+	</li>
+	<li> Any other needed (Python) files </li>
+	<li> <tt><b>README</b></tt> <i>optional</i> &mdash; anything you want to say to
+		me before I grade.</li>
+</ul>
+
+</body>
+</html>

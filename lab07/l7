@@ -1,0 +1,81 @@
+#Suin Kim
+#CS265-005
+
+Q1:
+add() adds a new string prefix as well as a suffix to the table while addSuffix() adds a new suffix to the hash table.
+
+Q2:
+lookup() determines if a new state should be created when given a boolean and a string prefix. It does this by iterating through the state table and checking if the prefix is found in a state. If the prefix is found, the function returns a point to its state. If the boolean argument is true but the prefix is not found, a new state is created for the prefix. The add() and generate() functions call lookup().
+
+Q3:
+
+(null)	(null)	| It's
+(null)	It's  	| a
+It's   	a       	| new
+a     	new    	| dawn
+new   	dawn  	| (null)
+
+a. "It's": 3 pointers
+b. "a": 3 pointers
+c. "new": 3 pointers
+d. "dawn": 2 pointers
+
+Q4:
+The advantage of this is that each string is allocated only the memory that it requires, therefore minimizing the amount of memory storage used.
+
+Q5:
+The drawback of this is that each pointer has to be freed when finished so that the memory can be allocated elsewhere.
+
+Q6:
+void cleanUp()
+{
+	State *sp = NULL;
+	State *temp = NULL;
+
+	for (int i = 0; i < NHASH; i++)
+	{
+		for (sp = statetab[i]; sp != NULL; sp = temp)
+		{
+			temp = sp->next;
+			free(sp);
+		}
+	}
+}
+
+Q7:
+The function works properly. Besides reviewing syntax, I did not encounter any major difficulties.
+
+Q8:
+In order to make sure that each string was freed exactly one, store the memory address that the pointer points to and then free the memory. For following pointers, check if they point to the stored memory address. Do not free that memory address if there is a match.
+
+Q9:
+The prefixes are stored in a deque which is a double ended queue that allows for the addition and removal of elements from the beginning or end of the sequence. Using a deque rather than a vector allows us to pop the first element as well as add a new element to the end.
+
+Q10:
+A map serves as our dictionary and replaces the hash table.
+
+Q11:
+The satellite data or list of suffices is stored as a vector of suffices.
+
+Q12:
+The advantage of this implementation is that each suffix can be modified since it is in its own vector object, where as the C implementation points to one memory location for all instances of a string.
+
+Q13:
+The drawback of this implementation is that it uses more memory since more objects are created and more strings are stored than in the C implementation.
+
+Q14:
+The prefixes are stored as tuples.
+
+Q15:
+A python dictionary serves as our dictionary and replaces the hash table.
+
+Q16:
+The satellite data or list of suffices is stored in a list.
+
+Q17:
+The advantage of this implementation is that is is easier to write due to the built in data types in Python. 
+
+Q18:
+The drawback of this implementation is that it performs worse than C++ due to C++ having better data structures.
+
+
